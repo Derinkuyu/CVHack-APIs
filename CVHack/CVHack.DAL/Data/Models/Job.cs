@@ -1,0 +1,23 @@
+﻿using static System.Net.Mime.MediaTypeNames;
+
+namespace CVHack.DAL
+{
+    public class Job
+    {
+        public int Id { get; set; }
+        public string Title { get; set; } = null!;
+        public string CompanyName { get; set; } = null!;
+        public string SourcePlatform { get; set; } = null!;
+        public string Description { get; set; } = null!;
+        public string Location { get; set; } = null!;
+        public string WorkType { get; set; } = null!;
+        public string WorkTime { get; set; } = null!;
+        public string JobUrl { get; set; } = null!;
+        public decimal SalaryMin { get; set; }
+        public decimal SalaryMax { get; set; }
+        public DateTime PostedAt { get; set; }
+        public ICollection<Application> Applications { get; set; } = new HashSet<Application>();
+        public ICollection<SavedJob> SavedJobs { get; set; } = new HashSet<SavedJob>();
+        public ICollection<SkillGapAnalysis> SkillGapAnalyses { get; set; } = new HashSet<SkillGapAnalysis>();
+    }
+}

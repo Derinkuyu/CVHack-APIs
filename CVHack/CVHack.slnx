@@ -1,3 +1,6 @@
 <Solution>
   <Project Path="CVHack.API/CVHack.API.csproj" />
+  <Project Path="CVHack.BLL/CVHack.BLL.csproj" />
+  <Project Path="CVHack.Common/CVHack.Common.csproj" />
+  <Project Path="CVHack.DAL/CVHack.DAL.csproj" />
 </Solution>
