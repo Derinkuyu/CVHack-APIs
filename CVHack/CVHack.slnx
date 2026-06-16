@@ -1,6 +1,9 @@
 <Solution>
   <Project Path="CVHack.API/CVHack.API.csproj" />
+<<<<<<< HEAD
   <Project Path="CVHack.BLL/CVHack.BLL.csproj" />
   <Project Path="CVHack.Common/CVHack.Common.csproj" />
+=======
+>>>>>>> 8f0219cab4cab26d5de9a43786cf3130a74bd443
   <Project Path="CVHack.DAL/CVHack.DAL.csproj" />
 </Solution>

@@ -1,6 +1,4 @@
-﻿using static System.Net.Mime.MediaTypeNames;
-
-namespace CVHack.DAL
+﻿namespace CVHack.DAL
 {
     public class Job
     {
