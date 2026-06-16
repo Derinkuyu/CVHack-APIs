@@ -1,0 +1,27 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using System.Reflection;
+using YourApp.DAL.Configurations;
+using YourApp.DAL.Models;
+
+namespace YourApp.DAL.Data;
+
+public class AppDbContext : IdentityDbContext<ApplicationUser>
+{
+    public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
+
+    protected override void OnModelCreating(ModelBuilder builder)
+    {
+        base.OnModelCreating(builder);
+
+        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+    }
+
+    public DbSet<UserProfile> UserProfiles { get; set; }
+    public DbSet<Skill> Skills { get; set; }
+    public DbSet<ProfileSkill> ProfileSkills { get; set; }
+    public DbSet<Project> Projects { get; set; }
+    public DbSet<Certification> Certifications { get; set; }
+    public DbSet<Experience> Experiences { get; set; }
+    public DbSet<Education> Educations { get; set; }
+}

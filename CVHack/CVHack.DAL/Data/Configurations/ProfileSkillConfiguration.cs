@@ -1,0 +1,23 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using YourApp.DAL.Models;
+
+namespace YourApp.DAL.Configurations;
+
+public class ProfileSkillConfiguration : IEntityTypeConfiguration<ProfileSkill>
+{
+    public void Configure(EntityTypeBuilder<ProfileSkill> builder)
+    {
+        builder.HasKey(ps => new { ps.ProfileId, ps.SkillId });
+
+        builder.HasOne(ps => ps.Profile)
+               .WithMany(p => p.ProfileSkills)
+               .HasForeignKey(ps => ps.ProfileId)
+               .OnDelete(DeleteBehavior.Cascade);
+
+        builder.HasOne(ps => ps.Skill)
+               .WithMany(s => s.ProfileSkills)
+               .HasForeignKey(ps => ps.SkillId)
+               .OnDelete(DeleteBehavior.Cascade);
+    }
+}
