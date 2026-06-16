@@ -15,7 +15,7 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
     }
 
-    public DbSet<UserProfile> UserProfiles { get; set; }
+    public DbSet<UserProfile> UserProfiles => Set<UserProfile>();
     public DbSet<Skill> Skills { get; set; }
     public DbSet<ProfileSkill> ProfileSkills { get; set; }
     public DbSet<Project> Projects { get; set; }
