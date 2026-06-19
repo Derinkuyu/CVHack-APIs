@@ -1,4 +1,3 @@
-using CVHack.BLL.DTOs;
 using CVHack.Common;
 using CVHack.DAL;
 using Microsoft.AspNetCore.Identity;
@@ -12,7 +11,7 @@ using System.Security.Claims;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CVHack.BLL.Services;
+namespace CVHack.BLL;
 
 public class AuthService : IAuthService
 {

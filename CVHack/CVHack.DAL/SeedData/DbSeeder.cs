@@ -1,10 +1,9 @@
-using CVHack.DAL;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Threading.Tasks;
 
-namespace CVHack.DAL.SeedData;
+namespace CVHack.DAL;
 
 public static class DbSeeder
 {

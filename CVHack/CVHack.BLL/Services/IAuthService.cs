@@ -1,8 +1,7 @@
-using CVHack.BLL.DTOs;
 using CVHack.Common;
 using System.Threading.Tasks;
 
-namespace CVHack.BLL.Services;
+namespace CVHack.BLL;
 
 public interface IAuthService
 {

@@ -1,7 +1,6 @@
 using FluentValidation;
-using CVHack.BLL.DTOs;
 
-namespace CVHack.BLL.Validators;
+namespace CVHack.BLL;
 
 public class RegisterJobSeekerDtoValidator : AbstractValidator<RegisterJobSeekerDto>
 {

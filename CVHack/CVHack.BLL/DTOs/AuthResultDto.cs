@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace CVHack.BLL.DTOs;
+namespace CVHack.BLL;
 
 public class AuthResultDto
 {

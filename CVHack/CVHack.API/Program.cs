@@ -1,6 +1,5 @@
 using CVHack.BLL;
 using CVHack.DAL;
-using CVHack.DAL.SeedData;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.OpenApi;

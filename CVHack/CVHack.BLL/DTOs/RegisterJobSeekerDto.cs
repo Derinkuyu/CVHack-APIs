@@ -1,4 +1,4 @@
-namespace CVHack.BLL.DTOs;
+namespace CVHack.BLL;
 
 public class RegisterJobSeekerDto
 {

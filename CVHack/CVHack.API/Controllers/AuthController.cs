@@ -1,11 +1,10 @@
-using CVHack.BLL.DTOs;
-using CVHack.BLL.Services;
+using CVHack.BLL;
 using CVHack.Common;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
-namespace CVHack.API.Controllers;
+namespace CVHack.API;
 
 [ApiController]
 [Route("api/[controller]")]
