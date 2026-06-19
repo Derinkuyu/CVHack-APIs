@@ -22,4 +22,10 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<Certification> Certifications { get; set; }
     public DbSet<Experience> Experiences { get; set; }
     public DbSet<Education> Educations { get; set; }
+    public DbSet<Job> Jobs { get; set; }
+    public DbSet<Application> Applications { get; set; }
+    public DbSet<SavedJob> SavedJobs { get; set; }
+    public DbSet<SkillGapAnalysis> SkillGapAnalyses { get; set; }
+    public DbSet<SkillGapItem> SkillGapItems { get; set; }
+    public DbSet<SupportTicket> SupportTickets { get; set; }
 }

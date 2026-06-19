@@ -18,6 +18,9 @@ namespace CVHack.DAL
                    .WithMany(j => j.Applications)
                    .HasForeignKey(a => a.JobId)
                    .OnDelete(DeleteBehavior.Cascade);
+
+            builder.Property(a => a.MatchScore)
+                   .HasPrecision(5, 2); 
         }
     }
 }
