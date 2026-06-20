@@ -16,16 +16,17 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
     }
 
     public DbSet<UserProfile> UserProfiles => Set<UserProfile>();
-    public DbSet<Skill> Skills { get; set; }
-    public DbSet<ProfileSkill> ProfileSkills { get; set; }
-    public DbSet<Project> Projects { get; set; }
-    public DbSet<Certification> Certifications { get; set; }
-    public DbSet<Experience> Experiences { get; set; }
-    public DbSet<Education> Educations { get; set; }
-    public DbSet<Job> Jobs { get; set; }
-    public DbSet<Application> Applications { get; set; }
-    public DbSet<SavedJob> SavedJobs { get; set; }
-    public DbSet<SkillGapAnalysis> SkillGapAnalyses { get; set; }
-    public DbSet<SkillGapItem> SkillGapItems { get; set; }
-    public DbSet<SupportTicket> SupportTickets { get; set; }
+    public DbSet<Skill> Skills => Set<Skill>();
+    public DbSet<ProfileSkill> ProfileSkills => Set<ProfileSkill>();
+    public DbSet<Experience> Experiences => Set<Experience>();
+    public DbSet<Education> Educations => Set<Education>();
+    public DbSet<Certification> Certifications => Set<Certification>();
+    public DbSet<Project> Projects => Set<Project>();
+    public DbSet<Job> Jobs => Set<Job>();
+    public DbSet<Application> Applications => Set<Application>();
+    public DbSet<SupportTicket> SupportTickets => Set<SupportTicket>();
+    public DbSet<SkillGapAnalysis> SkillGapAnalyses => Set<SkillGapAnalysis>();
+    public DbSet<SkillGapItem> SkillGapItems => Set<SkillGapItem>();
+    public DbSet<SavedJob> SavedJobs => Set<SavedJob>();
+
 }

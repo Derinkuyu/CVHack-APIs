@@ -1,3 +1,4 @@
+using CVHack.DAL.Repositories;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -23,6 +24,14 @@ public static class DependencyInjection
         })
         .AddEntityFrameworkStores<AppDbContext>()
         .AddDefaultTokenProviders();
+
+        // Repositories
+        services.AddScoped<ISupportTicketRepository, SupportTicketRepository>();
+        services.AddScoped<IApplicationRepository, ApplicationRepository>();
+        services.AddScoped<ISavedJobRepository, SavedJobRepository>();
+
+        // Unit Of Work
+        services.AddScoped<IUnitOfWork, UnitOfWork>();
 
         return services;
     }
