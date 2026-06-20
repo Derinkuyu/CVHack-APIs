@@ -24,6 +24,9 @@ public static class DependencyInjection
         .AddEntityFrameworkStores<AppDbContext>()
         .AddDefaultTokenProviders();
 
+        services.AddScoped<IProfileRepository, ProfileRepository>();
+        services.AddScoped<IExperienceRepository, ExperienceRepository>();
+
         return services;
     }
 }
