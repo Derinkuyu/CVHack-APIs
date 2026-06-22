@@ -19,6 +19,9 @@ public static class DependencyInjection
         services.AddScoped<IProfileService, ProfileService>();
         services.AddScoped<IExperienceService, ExperienceService>();
 
+        services.AddScoped<IApplicationManager, ApplicationManager>();
+        services.AddScoped<ISupportTicketManager, SupportTicketManager>();
+
         return services;
     }
 }
