@@ -21,6 +21,9 @@ public static class DependencyInjection
         services.AddScoped<IEducationService, EducationService>();
         services.AddScoped<ICertificationService, CertificationService>();
 
+        services.AddScoped<IApplicationManager, ApplicationManager>();
+        services.AddScoped<ISupportTicketManager, SupportTicketManager>();
+
         return services;
     }
 }

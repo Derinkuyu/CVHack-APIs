@@ -24,10 +24,10 @@ namespace CVHack.DAL
                 .AnyAsync(a => a.UserId == userId && a.JobId == jobId);
         }
 
-        public async Task<int> GetJobApplicationsCountAsync(int jobId)
-        {
-            return await _context.Applications
-                .CountAsync(a => a.JobId == jobId);
-        }
+        //public async Task<int> GetUserApplicationsCountAsync(string userId)
+        //{
+        //    return await _context.Applications
+        //        .CountAsync(a => a.UserId == userId);
+        //}
     }
 }
