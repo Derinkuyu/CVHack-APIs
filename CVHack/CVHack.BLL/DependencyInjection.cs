@@ -18,6 +18,8 @@ public static class DependencyInjection
 
         services.AddScoped<IProfileService, ProfileService>();
         services.AddScoped<IExperienceService, ExperienceService>();
+        services.AddScoped<IEducationService, EducationService>();
+        services.AddScoped<ICertificationService, CertificationService>();
 
         return services;
     }
