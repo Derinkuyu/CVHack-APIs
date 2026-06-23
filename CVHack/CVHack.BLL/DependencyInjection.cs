@@ -1,10 +1,8 @@
-using CVHack.BLL.Services.Application;
 using CVHack.BLL.Services.Auth;
 using CVHack.BLL.Services.Certification;
 using CVHack.BLL.Services.Education;
 using CVHack.BLL.Services.Experience;
 using CVHack.BLL.Services.Profile;
-using CVHack.BLL.Services.SupportTicket;
 using CVHack.DAL;
 using FluentValidation;
 using Microsoft.Extensions.Configuration;
