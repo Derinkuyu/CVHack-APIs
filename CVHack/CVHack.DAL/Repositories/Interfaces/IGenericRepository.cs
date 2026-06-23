@@ -1,4 +1,4 @@
-﻿namespace CVHack.DAL
+namespace CVHack.DAL
 {
     public interface IGenericRepository<T> where T : class
     {
@@ -7,5 +7,6 @@
         void Insert(T entity);
         void Update(T entity);
         void Delete(T entity);
+        Task SaveChangesAsync();
     }
 }

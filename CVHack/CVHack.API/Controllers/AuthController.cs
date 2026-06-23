@@ -1,4 +1,5 @@
-using CVHack.BLL;
+using CVHack.BLL.DTOs.Auth;
+using CVHack.BLL.Services.Auth;
 using CVHack.Common;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;

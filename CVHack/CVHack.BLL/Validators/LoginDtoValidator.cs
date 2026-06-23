@@ -1,3 +1,4 @@
+using CVHack.BLL.DTOs.Auth;
 using FluentValidation;
 
 namespace CVHack.BLL;
