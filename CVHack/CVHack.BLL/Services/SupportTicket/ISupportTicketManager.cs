@@ -1,6 +1,6 @@
 ﻿using CVHack.Common;
 
-namespace CVHack.BLL.Services.SupportTicket
+namespace CVHack.BLL
 {
     public interface ISupportTicketManager
     {

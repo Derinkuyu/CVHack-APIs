@@ -1,6 +1,6 @@
 ﻿using CVHack.Common;
 
-namespace CVHack.BLL.Services.Application
+namespace CVHack.BLL
 {
    public interface IApplicationManager
    {

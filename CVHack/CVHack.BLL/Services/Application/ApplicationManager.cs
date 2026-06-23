@@ -1,5 +1,4 @@
-﻿using CVHack.BLL.Services.Application;
-using CVHack.Common;
+﻿using CVHack.Common;
 using CVHack.DAL;
 using FluentValidation;
 
