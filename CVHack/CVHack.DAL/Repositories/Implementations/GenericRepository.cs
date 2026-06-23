@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace CVHack.DAL
 {
@@ -28,7 +28,7 @@ namespace CVHack.DAL
 
         public void Update(T entity)
         {
-           // _context.Set<T>().Update(entity);
+            _context.Set<T>().Update(entity);
         }
 
         public void Delete(T entity)
@@ -36,5 +36,9 @@ namespace CVHack.DAL
             _context.Set<T>().Remove(entity);
         }
 
+        public async Task SaveChangesAsync()
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }

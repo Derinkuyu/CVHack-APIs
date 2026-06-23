@@ -1,4 +1,5 @@
 ﻿using CVHack.BLL;
+using CVHack.BLL.Services.Application;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 

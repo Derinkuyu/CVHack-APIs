@@ -1,4 +1,5 @@
 using CVHack.BLL;
+using CVHack.BLL.Services.Profile;
 using CVHack.Common;
 using FluentValidation;
 using Microsoft.AspNetCore.Authorization;
