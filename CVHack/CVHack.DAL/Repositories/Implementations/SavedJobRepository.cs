@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-namespace CVHack.DAL.Repositories
+namespace CVHack.DAL
 {
     public class SavedJobRepository : GenericRepository<SavedJob>, ISavedJobRepository
     {

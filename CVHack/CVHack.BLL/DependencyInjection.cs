@@ -23,6 +23,7 @@ public static class DependencyInjection
 
         services.AddScoped<IApplicationManager, ApplicationManager>();
         services.AddScoped<ISupportTicketManager, SupportTicketManager>();
+        services.AddScoped<ISavedJobManager, SavedJobManager>();
 
         return services;
     }
