@@ -51,6 +51,15 @@ namespace CVHack.API
                 options.AddPolicy("JobSeekerOnly", policy => policy.RequireRole("JobSeeker"));
             });
 
+            // CORS - allow the Angular dev server to call this API
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAngular", policy =>
+                    policy.WithOrigins("http://localhost:4200")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod());
+            });
+
             builder.Services.AddControllers();
 
             // Configure built-in .NET OpenAPI with JWT Security & Operation Transformers
@@ -87,6 +96,8 @@ namespace CVHack.API
             }
 
             app.UseHttpsRedirection();
+
+            app.UseCors("AllowAngular");
 
             app.UseAuthentication();
             app.UseAuthorization();

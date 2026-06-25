@@ -122,6 +122,8 @@ public class AuthService : IAuthService
             Token = new JwtSecurityTokenHandler().WriteToken(token),
             Expiration = expiration,
             Email = user.Email!,
+            FirstName = user.FirstName,
+            LastName = user.LastName,
             Roles = roles.ToList()
         };
     }
