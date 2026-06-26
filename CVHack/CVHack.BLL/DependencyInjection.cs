@@ -35,6 +35,7 @@ public static class DependencyInjection
         services.AddScoped<ISupportTicketManager, SupportTicketManager>();
         services.AddScoped<IAdminUserService, AdminUserService>();
         services.AddScoped<ISavedJobManager, SavedJobManager>();
+        services.AddScoped<IJobManager, JobManager>();
 
         return services;
     }

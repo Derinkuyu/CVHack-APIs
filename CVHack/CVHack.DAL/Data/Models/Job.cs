@@ -7,6 +7,7 @@
         public string CompanyName { get; set; } = null!;
         public string SourcePlatform { get; set; } = null!;
         public string Description { get; set; } = null!;
+        public string? BriefDescription { get; set; }
         public string Location { get; set; } = null!;
         public string WorkType { get; set; } = null!;
         public string WorkTime { get; set; } = null!;
