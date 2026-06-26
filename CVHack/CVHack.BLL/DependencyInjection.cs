@@ -8,6 +8,7 @@ using FluentValidation;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using System.Reflection;
+using CVHack.BLL.Services.AdminUser;
 
 namespace CVHack.BLL;
 
@@ -32,6 +33,7 @@ public static class DependencyInjection
 
         services.AddScoped<IApplicationManager, ApplicationManager>();
         services.AddScoped<ISupportTicketManager, SupportTicketManager>();
+        services.AddScoped<IAdminUserService, AdminUserService>();
         services.AddScoped<ISavedJobManager, SavedJobManager>();
 
         return services;
