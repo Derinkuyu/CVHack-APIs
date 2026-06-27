@@ -8,7 +8,9 @@
         public string SourcePlatform { get; set; } = null!;
         public string Description { get; set; } = null!;
         public string? BriefDescription { get; set; }
-        public string Location { get; set; } = null!;
+        public string City { get; set; } = null!;        
+        public string Country { get; set; } = null!;      
+        public string Seniority { get; set; } = null!;
         public string WorkType { get; set; } = null!;
         public string WorkTime { get; set; } = null!;
         public string JobUrl { get; set; } = null!;

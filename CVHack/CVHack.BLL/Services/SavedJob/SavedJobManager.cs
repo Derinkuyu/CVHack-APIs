@@ -95,7 +95,7 @@ namespace CVHack.BLL
                 JobId = savedJob.JobId,
                 JobTitle = job.Title,
                 CompanyName = job.CompanyName,
-                Location = job.Location,
+                Location = $"{job.City}, {job.Country}",
                 JobUrl = job.JobUrl,
                 SavedAt = savedJob.SavedAt
             };
@@ -117,7 +117,7 @@ namespace CVHack.BLL
                 JobId = s.JobId,
                 JobTitle = s.Job.Title,
                 CompanyName = s.Job.CompanyName,
-                Location = s.Job.Location,
+                Location = $"{s.Job.City}, {s.Job.Country}",
                 JobUrl = s.Job.JobUrl,
                 SavedAt = s.SavedAt
             });
