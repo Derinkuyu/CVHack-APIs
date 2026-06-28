@@ -1,12 +1,16 @@
 using CVHack.BLL;
 using CVHack.DAL;
+using CVHack.AI;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.OpenApi;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.AI;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
+using OpenAI;
 using Scalar.AspNetCore;
+using System.ClientModel;
 using System.Text;
 
 namespace CVHack.API
@@ -61,6 +65,9 @@ namespace CVHack.API
             });
 
             builder.Services.AddControllers();
+
+            // --- AI: chat client (Groq, OpenAI-compatible) ---
+            builder.Services.AddAiIntegrations(builder.Configuration);
 
             // Configure built-in .NET OpenAPI with JWT Security & Operation Transformers
             builder.Services.AddOpenApi(options =>

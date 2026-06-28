@@ -10,10 +10,14 @@ namespace CVHack.API
     public class JobsController : ControllerBase
     {
         private readonly IJobManager _jobManager;
+        private readonly ICompanyResearchService _companyResearchService;
 
-        public JobsController(IJobManager jobManager)
+        public JobsController(
+            IJobManager jobManager,
+            ICompanyResearchService companyResearchService)               
         {
             _jobManager = jobManager;
+            _companyResearchService = companyResearchService;             
         }
 
         [HttpGet]
@@ -27,6 +31,13 @@ namespace CVHack.API
         public async Task<IActionResult> GetById(int id)
         {
             var result = await _jobManager.GetJobByIdAsync(id);
+            return StatusCode(result.StatusCode, result);
+        }
+
+        [HttpGet("{id:int}/briefing")]
+        public async Task<IActionResult> GetBriefing(int id)
+        {
+            var result = await _companyResearchService.GetBriefingAsync(id);
             return StatusCode(result.StatusCode, result);
         }
     }

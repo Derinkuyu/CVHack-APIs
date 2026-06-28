@@ -29,4 +29,6 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
     public DbSet<SkillGapItem> SkillGapItems => Set<SkillGapItem>();
     public DbSet<SavedJob> SavedJobs => Set<SavedJob>();
 
+    public DbSet<CompanyBriefing> CompanyBriefings => Set<CompanyBriefing>();
+
 }

@@ -3,10 +3,12 @@
   <ItemGroup>
     <ProjectReference Include="..\CVHack.DAL\CVHack.DAL.csproj" />
     <ProjectReference Include="..\CVHack.Common\CVHack.Common.csproj" />
+    <ProjectReference Include="..\CVHack.AI\CVHack.AI.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="12.1.1" />
+    <PackageReference Include="Microsoft.Extensions.AI.Abstractions" Version="10.7.0" />
     <PackageReference Include="Microsoft.IdentityModel.Tokens" Version="8.19.1" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="8.19.1" />
   </ItemGroup>

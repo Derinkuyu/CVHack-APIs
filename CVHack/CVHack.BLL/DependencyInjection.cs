@@ -37,6 +37,8 @@ public static class DependencyInjection
         services.AddScoped<ISavedJobManager, SavedJobManager>();
         services.AddScoped<IJobManager, JobManager>();
 
+        services.AddScoped<ICompanyResearchService, CompanyResearchService>();
+
         return services;
     }
 }

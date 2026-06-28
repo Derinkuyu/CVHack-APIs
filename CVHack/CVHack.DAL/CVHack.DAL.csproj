@@ -16,11 +16,6 @@
     </PackageReference>
   </ItemGroup>
 
-
-  <ItemGroup>
-    <Folder Include="Data\" />
-  </ItemGroup>
-
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
   </ItemGroup>
