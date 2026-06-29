@@ -46,6 +46,7 @@ namespace CVHack.BLL
             {
                 UserId = userId,
                 Subject = dto.Subject,
+                Category = dto.Category,
                 Description = dto.Description,
                 Status = "Open",
                 CreatedAt = DateTime.UtcNow
@@ -59,6 +60,7 @@ namespace CVHack.BLL
             {
                 Id = ticket.Id,
                 Subject = ticket.Subject,
+                Category = ticket.Category,
                 Description = ticket.Description,
                 Status = ticket.Status,
                 Reply = ticket.Reply,
@@ -80,6 +82,8 @@ namespace CVHack.BLL
             {
                 Id = t.Id,
                 Subject = t.Subject,
+                Category = t.Category,
+                Description = t.Description,
                 Status = t.Status,
                 CreatedAt = t.CreatedAt
             });
@@ -106,6 +110,7 @@ namespace CVHack.BLL
             {
                 Id = ticket.Id,
                 Subject = ticket.Subject,
+                Category = ticket.Category,
                 Description = ticket.Description,
                 Status = ticket.Status,
                 Reply = ticket.Reply,
@@ -132,6 +137,8 @@ namespace CVHack.BLL
                 UserName = t.User.FirstName!,
                 Email = t.User.Email!,
                 Subject = t.Subject,
+                Category = t.Category,
+                Description = t.Description,
                 Status = t.Status,
                 CreatedAt = t.CreatedAt
             });
@@ -160,6 +167,7 @@ namespace CVHack.BLL
                 UserName = ticket.User.FirstName!,
                 Email = ticket.User.Email!,
                 Subject = ticket.Subject,
+                Category = ticket.Category,
                 Description = ticket.Description,
                 Status = ticket.Status,
                 Reply = ticket.Reply,
@@ -223,6 +231,7 @@ namespace CVHack.BLL
                 UserName = ticket.User.FirstName!,
                 Email = ticket.User.Email!,
                 Subject = ticket.Subject,
+                Category = ticket.Category,
                 Description = ticket.Description,
                 Status = ticket.Status,
                 Reply = ticket.Reply,

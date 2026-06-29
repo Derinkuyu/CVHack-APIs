@@ -13,6 +13,13 @@ namespace CVHack.BLL
                 .MaximumLength(200)
                 .WithMessage("Subject must not exceed 200 characters.");
 
+            RuleFor(x => x.Category)
+                .Cascade(CascadeMode.Stop)
+                .NotEmpty()
+                .WithMessage("Category is required.")
+                .MaximumLength(100)
+                .WithMessage("Category must not exceed 100 characters.");
+
             RuleFor(x => x.Description)
                 .Cascade(CascadeMode.Stop)
                 .NotEmpty()

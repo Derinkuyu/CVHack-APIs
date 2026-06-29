@@ -33,6 +33,10 @@ public class SkillAnalysisService : ISkillAnalysisService
         if (profile is null)
             return Result<SkillAnalysisDto>.Failure("Profile not found.", "Complete your profile first.", 400);
 
+        // without skills there is nothing meaningful to match against — tell the user to add them first
+        if (!profile.ProfileSkills.Any())
+            return Result<SkillAnalysisDto>.Failure("No skills in profile.", "Please add skills to your profile first.", 400);
+
         var currentHash = ProfileFingerprint.Compute(profile);
 
         // cache is valid only if the profile hasn't changed since it was generated
@@ -127,7 +131,7 @@ public class SkillAnalysisService : ISkillAnalysisService
         return Result<SkillAnalysisDto>.Success(MapToDto(job, analysis), "Skill analysis complete.", 200);
     }
 
-    // critical requirements (e.g. a seniority shortfall) weigh more than nice-to-haves
+    // critical requirements 
     private static int SeverityWeight(string severity) => severity?.ToLowerInvariant() switch
     {
         "critical" => 3,
@@ -147,7 +151,7 @@ public class SkillAnalysisService : ISkillAnalysisService
             JobId = job.Id,
             JobTitle = job.Title,
             OverallScore = a.OverallScore,
-            AverageMatch = averageMatch,   // severity-weighted average of per-skill matches
+            AverageMatch = averageMatch,   
             OverallSummary = a.OverallSummary,
             UpdatedAt = a.UpdatedAt,
             Items = a.SkillGapItems
