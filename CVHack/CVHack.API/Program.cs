@@ -111,6 +111,62 @@ namespace CVHack.API
 
             app.MapControllers();
 
+
+
+            //-------------------------------------------------------------------------------------------
+            // Temporary RAG test endpoints
+            //-------------------------------------------------------------------------------------------
+            app.MapGet("/rag/documents", async (IDocumentLoader loader) =>
+            {
+                var docs = await loader.LoadAsync();
+
+                return Results.Ok(docs.Select(d => new
+                {
+                    d.KnowledgeBase,
+                    d.Category,
+                    d.FileName
+                }));
+            });
+
+
+            app.MapGet("/rag/chunks", async (IDocumentLoader loader, TextChunker chunker) =>
+            {
+                var docs = await loader.LoadAsync();
+                var chunks = docs.SelectMany(chunker.Chunk).ToList();
+
+                return Results.Ok(new
+                {
+                    TotalDocuments = docs.Count,
+                    TotalChunks = chunks.Count,
+                    Sample = chunks.Take(2).Select(c => new
+                    {
+                        c.KnowledgeBase,
+                        c.Category,
+                        c.SourceFile,
+                        c.Metadata,
+                        TextPreview = c.Text[..Math.Min(100, c.Text.Length)]
+                    })
+                });
+            });
+
+            app.MapGet("/rag/embed-test", async (IEmbeddingService embedder) =>
+            {
+                var vector = await embedder.EmbedAsync("What is dependency injection?");
+                return Results.Ok(new
+                {
+                    Dimensions = vector.Length,
+                    Sample = vector.Take(5)
+                });
+            });
+
+
+            app.MapGet("/rag/search", async (IRagService rag, string query) =>
+            {
+                var results = await rag.SearchAsync(query, "InterviewQuestions", topK: 3);
+                return Results.Ok(results);
+            });
+            //-------------------------------------------------------------------------------------------
+
             await app.RunAsync();
         }
     }
@@ -145,14 +201,14 @@ namespace CVHack.API
         public Task TransformAsync(OpenApiOperation operation, OpenApiOperationTransformerContext context, CancellationToken cancellationToken)
         {
             var metadata = context.Description.ActionDescriptor.EndpointMetadata;
-            
+
             var hasAuthorize = metadata.Any(m => m is Microsoft.AspNetCore.Authorization.AuthorizeAttribute);
             var hasAllowAnonymous = metadata.Any(m => m is Microsoft.AspNetCore.Authorization.AllowAnonymousAttribute);
 
             if (hasAuthorize && !hasAllowAnonymous)
             {
                 operation.Security ??= new List<OpenApiSecurityRequirement>();
-                
+
                 var securityRequirement = new OpenApiSecurityRequirement
                 {
                     {
