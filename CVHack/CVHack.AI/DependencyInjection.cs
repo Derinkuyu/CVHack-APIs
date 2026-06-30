@@ -11,6 +11,15 @@ public static class DependencyInjection
 
         services.AddHttpClient<IWebSearchClient, TavilySearchClient>();   // web search
 
+        // RAG
+        services.AddHttpClient<IEmbeddingService, GeminiEmbeddingService>();
+        services.AddSingleton<IDocumentLoader, DocumentLoader>();
+        services.AddSingleton<TextChunker>();
+        services.AddSingleton<IVectorStore, InMemoryVectorStore>();
+        services.AddSingleton<IRagIngestionService, RagIngestionService>();
+        services.AddHostedService<RagIngestionHostedService>();
+        services.AddSingleton<IRagService, RagService>();
+
         return services;
     }
 }

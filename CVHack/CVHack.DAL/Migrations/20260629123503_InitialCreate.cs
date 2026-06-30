@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace CVHack.DAL.Migrations
 {
     /// <inheritdoc />
-    public partial class m : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -33,6 +33,9 @@ namespace CVHack.DAL.Migrations
                     FirstName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     LastName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     CreatedAt = table.Column<DateTime>(type: "datetime2", nullable: false),
+                    Plan = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Status = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Searches = table.Column<int>(type: "int", nullable: false),
                     UserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     NormalizedUserName = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
                     Email = table.Column<string>(type: "nvarchar(256)", maxLength: 256, nullable: true),
@@ -54,6 +57,24 @@ namespace CVHack.DAL.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "CompanyBriefings",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Founded = table.Column<int>(type: "int", nullable: true),
+                    StaffMin = table.Column<int>(type: "int", nullable: true),
+                    StaffMax = table.Column<int>(type: "int", nullable: true),
+                    Content = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    UpdatedAt = table.Column<DateTime>(type: "datetime2", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CompanyBriefings", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Jobs",
                 columns: table => new
                 {
@@ -63,7 +84,10 @@ namespace CVHack.DAL.Migrations
                     CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     SourcePlatform = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Location = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    BriefDescription = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    City = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Country = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Seniority = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     WorkType = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     WorkTime = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     JobUrl = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -601,6 +625,9 @@ namespace CVHack.DAL.Migrations
 
             migrationBuilder.DropTable(
                 name: "Certifications");
+
+            migrationBuilder.DropTable(
+                name: "CompanyBriefings");
 
             migrationBuilder.DropTable(
                 name: "Educations");
