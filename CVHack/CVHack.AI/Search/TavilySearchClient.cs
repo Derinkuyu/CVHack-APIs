@@ -20,9 +20,8 @@ public class TavilySearchClient : IWebSearchClient
         {
             api_key = _apiKey,
             query,
-            max_results = 6,
+            max_results = 7,
             search_depth = "advanced",
-            include_domains = new[] { "linkedin.com", "wikipedia.org" }
         };
         var resp = await _http.PostAsJsonAsync("https://api.tavily.com/search", body, ct);
         resp.EnsureSuccessStatusCode();

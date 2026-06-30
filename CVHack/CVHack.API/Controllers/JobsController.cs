@@ -11,13 +11,16 @@ namespace CVHack.API
     {
         private readonly IJobManager _jobManager;
         private readonly ICompanyResearchService _companyResearchService;
+        private readonly ISkillAnalysisService _skillAnalysisService;
 
         public JobsController(
             IJobManager jobManager,
-            ICompanyResearchService companyResearchService)               
+            ICompanyResearchService companyResearchService,
+            ISkillAnalysisService skillAnalysisService)               
         {
             _jobManager = jobManager;
-            _companyResearchService = companyResearchService;             
+            _companyResearchService = companyResearchService;
+            _skillAnalysisService = skillAnalysisService;
         }
 
         [HttpGet]
@@ -38,6 +41,12 @@ namespace CVHack.API
         public async Task<IActionResult> GetBriefing(int id)
         {
             var result = await _companyResearchService.GetBriefingAsync(id);
+            return StatusCode(result.StatusCode, result);
+        }
+        [HttpGet("{id:int}/skill-analysis")]
+        public async Task<IActionResult> GetSkillAnalysis(int id)
+        {
+            var result = await _skillAnalysisService.AnalyzeAsync(id, User.GetUserId());
             return StatusCode(result.StatusCode, result);
         }
     }

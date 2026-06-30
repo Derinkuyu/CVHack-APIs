@@ -85,6 +85,12 @@ public class AuthService : IAuthService
             return Result<AuthResultDto>.Failure("Invalid email or password.", statusCode: 401);
         }
 
+        // block suspended accounts from logging in
+        if (user.Status == "Suspended")
+        {
+            return Result<AuthResultDto>.Failure("Your account has been suspended. Please contact support.", statusCode: 403);
+        }
+
         var authResult = await GenerateJwtTokenAsync(user);
         return Result<AuthResultDto>.Success(authResult, "Login successful.", statusCode: 200);
     }

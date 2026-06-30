@@ -31,4 +31,5 @@ public class AppDbContext : IdentityDbContext<ApplicationUser>
 
     public DbSet<CompanyBriefing> CompanyBriefings => Set<CompanyBriefing>();
 
+
 }
